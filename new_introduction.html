@@ -13,12 +13,7 @@
     <!-- http://lazcreative.com/blog/adding-swipe-support-to-bootstrap-carousel-3-0/ -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.touchswipe/1.6.19/jquery.touchSwipe.min.js"></script>
 
-    <style>
-        .backgroundWrapper {
-            /* width: 80vw;
-            height: 90vh;
-            margin: 0 auto; */
-        }
+    <style>     
 
         .mainClass {
             position: absolute;
@@ -49,16 +44,12 @@
             line-height: 0.4;
             font-family: serif;
             color: purple;
+            display: none;
         }
 
         .ml12 .letter {
             display: inline-block;
-        }
-
-        /* .slide-in-left {
-            -webkit-animation: slide-in-left 2.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-            animation: slide-in-left 2.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-        } */
+        }        
 
         .ciplaLogo h2 {
             color: #072cb9;
@@ -68,43 +59,13 @@
             right: 22px;
 
         }
-
-
-        /* @-webkit-keyframes slide-in-left {
-            0% {
-                -webkit-transform: translateX(-1000px);
-                transform: translateX(-1000px);
-                opacity: 0;
-            }
-
-            100% {
-                -webkit-transform: translateX(0);
-                transform: translateX(0);
-                opacity: 1;
-            }
-        }
-
-        @keyframes slide-in-left {
-            0% {
-                -webkit-transform: translateX(-1000px);
-                transform: translateX(-1000px);
-                opacity: 0;
-            }
-
-            100% {
-                -webkit-transform: translateX(0);
-                transform: translateX(0);
-                opacity: 1;
-            }
-        } */
-
-
+        
         .homeIcon {
             flex: 0 0 97%;
         }
 
         .homeIcon span {
-            font-size: 30px;
+            font-size: 35px;
             width: 35px;
         }
 
@@ -180,6 +141,14 @@
 ##Device = Tablets, Ipads (portrait)
 ##Screen = B/w 768px to 1024px
 */
+            .homeIcon {
+                flex: 0 0 95%;
+            }
+
+            .firstChild {
+                margin-top: 15%;
+                margin-left: 5px;
+            }
 
         }
 
@@ -187,7 +156,14 @@
 
             /* ##Device = Tablets, Ipads (landscape)
 ##Screen = B/w 768px to 1024px */
+            .homeIcon {
+                flex: 0 0 95%;
+            }
 
+            .firstChild {
+                margin-top: 10%;
+                margin-left: 5px;
+            }
         }
 
         @media (min-width: 481px) and (max-width: 767px) {
@@ -200,6 +176,10 @@
                 margin-top: 22%;
                 margin-left: 5px;
             }
+
+            .homeIcon {
+                flex: 0 0 95%;
+            }
         }
 
         @media (min-width: 200px) and (max-width: 480px) {
@@ -208,6 +188,10 @@
 ##Device = Most of the Smartphones Mobiles (Portrait)
 ##Screen = B/w 320px to 479px
 */
+            .homeIcon {
+                flex: 0 0 90%;
+            }
+
             .ml12 {
                 font-weight: 800;
                 font-size: 1.5em;
@@ -216,6 +200,7 @@
                 line-height: 0.4;
                 font-family: serif;
                 color: purple;
+                display: none;
             }
 
             .firstChild {
@@ -223,6 +208,21 @@
                 margin-left: 5px;
             }
         }
+
+        @media only screen and (min-device-width: 1024px) and (max-device-width: 1366px)and (orientation: portrait) {
+
+            /* ipad pro */
+            .firstChild {
+                margin-top: 15%;
+                margin-left: 5px;
+            }
+
+            .homeIcon {
+                flex: 0 0 97%;
+            }
+        }
+
+       
     </style>
 
 <body>
@@ -346,20 +346,23 @@
         <div style="display:flex">
 
             <div class="homeIcon">
-                <a href="Home_Page.html"><span class="glyphicon glyphicon-home"></span></a>
+                <a href="Home_Page.html" style="color:black"><span class="glyphicon glyphicon-home"></span></a>
             </div>
             <div class="backBtnSvg">
-                <svg id="Capa_1" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                    x="0px" y="0px" viewBox="0 0 487.622 487.622" style="enable-background:new 0 0 487.622 487.622"
-                    xml:space="preserve">
+                <svg id="Capa_1" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 487.622 487.622"
+                    style="enable-background:new 0 0 487.622 487.622" xml:space="preserve">
                     <g>
                         <g>
-                            <circle style="fill:#C4E15E" cx="243.811" cy="243.811" r="243.811"></circle>
-                            <path style="fill:#C4E15E" d="M487.479,251.765l-87.965-69.016l-80.212,0.008l-86.559-52.091l2.058,226.284l133.459,96.54      C437.592,412.251,484.726,337.617,487.479,251.765z">
+                            <circle style="fill:rgb(19, 136, 111)" cx="243.811" cy="243.811" r="243.811"></circle>
+                            <path style="fill:rgb(19, 136, 111)"
+                                d="M487.479,251.765l-87.965-69.016l-80.212,0.008l-86.559-52.091l2.058,226.284l133.459,96.54      C437.592,412.251,484.726,337.617,487.479,251.765z">
                             </path>
-                            <path style="opacity:0.37;fill:#B5D24F;enable-background:new    " d="M487.479,251.765l-87.965-69.016l-80.212,0.008      l-86.559-52.091l2.058,226.284l133.459,96.54C437.592,412.251,484.726,337.617,487.479,251.765z">
+                            <path style="opacity:0.37;fill:rgb(19, 136, 111);enable-background:new    "
+                                d="M487.479,251.765l-87.965-69.016l-80.212,0.008      l-86.559-52.091l2.058,226.284l133.459,96.54C437.592,412.251,484.726,337.617,487.479,251.765z">
                             </path>
-                            <polygon style="fill:#FFFFFF" points="88.109,243.809 234.801,130.666 234.801,182.749 399.514,182.749 399.514,304.873       234.801,304.873 234.801,356.951">
+                            <polygon style="fill:#FFFFFF"
+                                points="88.109,243.809 234.801,130.666 234.801,182.749 399.514,182.749 399.514,304.873       234.801,304.873 234.801,356.951">
                             </polygon>
                         </g>
                     </g>
@@ -379,12 +382,12 @@
             //Generic swipe handler for all directions
             swipeUp: function (event, direction, distance, duration, fingerCount) {
                 $(this).parent().carousel('prev');
-                $.fn.myFunction();
+                setTimeout(function () { $.fn.myFunction() }, 700)
 
             },
             swipeDown: function () {
                 $(this).parent().carousel('next');
-                $.fn.myFunction();
+                setTimeout(function () { $.fn.myFunction() }, 700)
             },
             //Default is 75px, set to 0 for demo so any distance triggers swipe
             threshold: 0
@@ -392,33 +395,34 @@
 
     });
     $('#carousel-example-generic').bind('slide.bs.carousel', function (e) {
-        $.fn.myFunction();
+        setTimeout(function () { $.fn.myFunction() }, 700)
     });
 
     $.fn.myFunction = function () {
-        $('.ml12').each(function () {
+        $('.item.active .ml12').each(function () {
+            $(this).css('display', 'block')
             $(this).html($(this).text().replace(/([^\x00-\x80]|\w)/g, "<span class='letter'>$&</span>"));
         });
 
         anime.timeline({ loop: false })
             .add({
-                targets: '.ml12 .letter',
+                targets: '.item.active .ml12 .letter',
                 translateX: [40, 0],
                 translateZ: 0,
                 opacity: [0, 1],
                 easing: "easeOutExpo",
-                duration: 1200,
+                duration: 1000,
                 delay: function (el, i) {
-                    return 100 + 30 * i;
+                    return 50 + 30 * i;
                 }
             }).add({
-                targets: '.ml12 .letter',
+                targets: '.item.active .ml12 .letter',
                 // translateX: [0,-30],
                 opacity: [1],
                 easing: "easeInExpo",
-                duration: 1100,
+                duration: 1000,
                 delay: function (el, i) {
-                    return 100 + 30 * i;
+                    return 50 + 30 * i;
                 }
             });
     }     

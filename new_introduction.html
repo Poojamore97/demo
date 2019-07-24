@@ -55,10 +55,10 @@
             display: inline-block;
         }
 
-        .slide-in-left {
+        /* .slide-in-left {
             -webkit-animation: slide-in-left 2.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
             animation: slide-in-left 2.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-        }
+        } */
 
         .ciplaLogo h2 {
             color: #072cb9;
@@ -70,7 +70,7 @@
         }
 
 
-        @-webkit-keyframes slide-in-left {
+        /* @-webkit-keyframes slide-in-left {
             0% {
                 -webkit-transform: translateX(-1000px);
                 transform: translateX(-1000px);
@@ -96,7 +96,7 @@
                 transform: translateX(0);
                 opacity: 1;
             }
-        }
+        } */
 
 
         .homeIcon {
@@ -172,6 +172,8 @@
         }
 
 
+
+
         @media (min-width: 768px) and (max-width: 1024px) {
 
             /* 
@@ -225,7 +227,7 @@
 
 <body>
     <div class="container">
-        <div id="carousel-example-generic" class="carousel slide vertical" data-ride="carousel" data-interval="false">
+        <div id="carousel-example-generic" class="carousel slide vertical" data-ride="carousel">
             <!-- Indicators -->
             <ol class="carousel-indicators">
                 <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
@@ -388,14 +390,11 @@
             threshold: 0
         });
 
-        $('#carousel-example-generic').on('slid.bs.carousel', function () {
-            $.fn.myFunction();
-            // $holder = $("ol li.active");
-            // $holder.removeClass('active');
-            // var idx = $('div.active').index('div.item');
-            // $('ol.carousel-indicators li[data-slide-to="' + idx + '"]').addClass('active');
-        });
     });
+    $('#carousel-example-generic').bind('slide.bs.carousel', function (e) {
+        $.fn.myFunction();
+    });
+
     $.fn.myFunction = function () {
         $('.ml12').each(function () {
             $(this).html($(this).text().replace(/([^\x00-\x80]|\w)/g, "<span class='letter'>$&</span>"));
@@ -410,7 +409,7 @@
                 easing: "easeOutExpo",
                 duration: 1200,
                 delay: function (el, i) {
-                    return 500 + 30 * i;
+                    return 100 + 30 * i;
                 }
             }).add({
                 targets: '.ml12 .letter',

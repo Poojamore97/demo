@@ -1,0 +1,129 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <style>
+            body {
+                font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+                font-size: 14px;
+                line-height: 1.42857143;
+                color: #333;
+                background-color: #fff;
+                overflow: hidden;
+            }
+            .square {
+                border: 1px solid gray;
+                overflow: hidden;
+                padding-bottom: 100%;
+                position: relative;
+            }
+            .square > div {
+                height: 100%;
+                position: absolute;
+                width: 100%;
+            }
+            .square > div > div {
+                display: table;
+                height: 100%;
+                width: 100%;
+            }
+            .square > div > div > div {
+                display: table-cell;
+                text-align: center;
+                vertical-align: middle;
+            }
+
+            .homePageBox{
+                display: block;
+                /* flex-wrap: nowrap;
+                justify-content: center; */
+                margin: 10 10;
+            }
+
+            .innerBoxElement{
+                margin-left: 5%;
+            }
+
+            .content{
+                font-weight: 800;
+            }
+
+            .content:hover{
+                background-color: #908b8b1a;
+                cursor: pointer;
+            }
+
+            .content a:hover,.content a:focus{
+                color: #337ab7;
+                text-decoration: none;
+            }
+            .homeTitle{
+                display: flex;
+                flex-wrap: nowrap;
+                justify-content: center;
+                font-weight: 700;
+                color: #adacac;
+                margin: 18px;
+            }
+            @media (min-width: 320px) and (max-width: 1024px) {
+                .homePageBox{
+                    display: flex;
+                    flex-wrap: nowrap;
+                    justify-content: center;
+                }
+                .innerBoxElement{
+                    margin-left: 0;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <h2 class="homeTitle">HOME PAGE</h2>
+        <div class=" homePageBox">
+            <div class="col-md-2 col-sm-3 col-xs-7 innerBoxElement">
+                <div class="square">
+                    <div>
+                        <div>
+                            <div class="content"><a href="new_introduction.html">Introduction<br/>(Poem)</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class=" homePageBox">
+            <div class="col-md-2 col-sm-3 col-xs-7 innerBoxElement">
+                <div class="square">
+                    <div>
+                        <div>
+                            <div class="content"><a href="javascript:void(0)">In Patient with <br/>epilepsy<br/>(Opener Page)</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class=" homePageBox">
+                <div class="col-md-2 col-sm-3 col-xs-7 innerBoxElement">
+                    <div class="square">
+                        <div>
+                            <div>
+                                <div class="content"><a href="javascript:void(0)">In children with <br/>epilepsy(Opener<br/> Page)</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class=" homePageBox">
+                    <div class="col-md-2 col-sm-3 col-xs-7 innerBoxElement">
+                        <div class="square">
+                            <div>
+                                <div>
+                                    <div class="content"><a href="javascript:void(0)">SKU'S</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    </body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</html>

@@ -1,0 +1,104 @@
+<html>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="responsivePage.css">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .mySlides {
+            display: none;
+            width: 100%;
+            height: -webkit-fill-available;
+        }
+
+        /* .w3-content{
+            width: 100%;
+            max-width: none;
+        }
+     */
+        .w3-display-left {
+            position: absolute;
+            top: 50%;
+            left: 0%;
+            transform: translate(0%, -50%);
+        }
+
+        .homeIcon {
+            position: absolute;
+            bottom: 0;
+            margin: 5px;
+        }
+
+        .homeIcon span {
+            font-size: 30px;
+            width: 35px;
+        }
+        .backBtnSvg svg{
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            width: 35px;
+            height: 35px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="w3-content w3-display-container">
+
+        <object type="text/html" data="effect1.html" class="mySlides"></object>
+        <object type="text/html" data="homePage2.html" class="mySlides"></object>
+        <object type="text/html" data="homePage3.html" class="mySlides"></object>
+        <object type="text/html" data="homePage4.html" class="mySlides"></object>
+
+
+        <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
+        <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
+        <div class="homeIcon">
+            <a href="Home_Page.html"><span class="glyphicon glyphicon-home"></span></a>
+        </div>
+        <div class="backBtnSvg">
+            <svg id="Capa_1" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                viewBox="0 0 487.622 487.622" style="enable-background:new 0 0 487.622 487.622" xml:space="preserve">
+                <g>
+                    <g>
+                        <circle style="fill:#C4E15E" cx="243.811" cy="243.811" r="243.811"></circle>
+                        <path style="fill:#C4E15E" d="M487.479,251.765l-87.965-69.016l-80.212,0.008l-86.559-52.091l2.058,226.284l133.459,96.54      C437.592,412.251,484.726,337.617,487.479,251.765z"></path>
+                        <path style="opacity:0.37;fill:#B5D24F;enable-background:new    " d="M487.479,251.765l-87.965-69.016l-80.212,0.008      l-86.559-52.091l2.058,226.284l133.459,96.54C437.592,412.251,484.726,337.617,487.479,251.765z"></path>
+                        <polygon style="fill:#FFFFFF" points="88.109,243.809 234.801,130.666 234.801,182.749 399.514,182.749 399.514,304.873       234.801,304.873 234.801,356.951"></polygon>
+                    </g>
+                </g>
+            </svg>
+        </div>
+    </div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<script>
+    var slideIndex = 1;
+    showDivs(slideIndex);
+
+    $('.backBtnSvg svg').on('click',function(){
+        window.history.back();
+    });
+
+    function plusDivs(n) {
+        showDivs(slideIndex += n);
+    }
+
+    function showDivs(n) {
+        var i;
+        var x = document.getElementsByClassName("mySlides");
+        if (n > x.length) { slideIndex = 1 }
+        if (n < 1) { slideIndex = x.length }
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+        x[slideIndex - 1].style.display = "block";
+    }
+</script>
+
+</html>

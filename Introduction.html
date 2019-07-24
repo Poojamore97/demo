@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <style>
+    .carousel-inner>.item>.mySlides,
+    .carousel-inner>.item>a>.mySlides {
+      width: 100%;
+      margin: auto;
+      height: 90vh;
+    }
+
+    .homeIcon {
+      /* position: absolute;
+      bottom: 0;
+      margin: 5px; */
+      flex: 0 0 97%;
+    }
+
+    .homeIcon span {
+      font-size: 30px;
+      width: 35px;
+    }
+
+    .backBtnSvg svg {
+      /* position: absolute;
+      right: 0;
+      bottom: 0; */
+      width: 35px;
+      height: 35px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <br>
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+        <li data-target="#myCarousel" data-slide-to="3"></li>
+      </ol>
+
+      <!-- Wrapper for slides -->
+      <div class="carousel-inner" role="listbox">
+
+        <div class="item active">
+          <object type="text/html" data="effect1.html" class="mySlides"></object>
+
+        </div>
+
+        <div class="item">
+          <object type="text/html" data="homePage2.html" class="mySlides"></object>
+
+        </div>
+
+        <div class="item">
+          <object type="text/html" data="homePage3.html" class="mySlides"></object>
+
+        </div>
+
+        <div class="item">
+          <object type="text/html" data="homePage4.html" class="mySlides"></object>
+
+        </div>
+
+      </div>
+
+      <!-- Left and right controls -->
+      <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+    <div style="display:flex">
+
+      <div class="homeIcon">
+        <a href="Home_Page.html"><span class="glyphicon glyphicon-home"></span></a>
+      </div>
+      <div class="backBtnSvg">
+        <svg id="Capa_1" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+          x="0px" y="0px" viewBox="0 0 487.622 487.622" style="enable-background:new 0 0 487.622 487.622"
+          xml:space="preserve">
+          <g>
+            <g>
+              <circle style="fill:#C4E15E" cx="243.811" cy="243.811" r="243.811"></circle>
+              <path style="fill:#C4E15E"
+                d="M487.479,251.765l-87.965-69.016l-80.212,0.008l-86.559-52.091l2.058,226.284l133.459,96.54      C437.592,412.251,484.726,337.617,487.479,251.765z">
+              </path>
+              <path style="opacity:0.37;fill:#B5D24F;enable-background:new    "
+                d="M487.479,251.765l-87.965-69.016l-80.212,0.008      l-86.559-52.091l2.058,226.284l133.459,96.54C437.592,412.251,484.726,337.617,487.479,251.765z">
+              </path>
+              <polygon style="fill:#FFFFFF"
+                points="88.109,243.809 234.801,130.666 234.801,182.749 399.514,182.749 399.514,304.873       234.801,304.873 234.801,356.951">
+              </polygon>
+            </g>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.touchswipe/1.6.4/jquery.touchSwipe.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!-- <script>
+  $(function() {
+  var sliding = startClientX = startPixelOffset = pixelOffset = currentSlide = 0;
+  slideCount = $('.slide').length;
+  
+  $('html').on('mousedown touchstart', slideStart);
+  $('html').on('mouseup touchend', slideEnd);
+  $('html').on('mousemove touchmove', slide);
+  
+  /**
+  / Triggers when slide event started
+  */
+  function slideStart(event) {
+    // If it is mobile device redefine event to first touch point
+    if (event.originalEvent.touches)
+      event = event.originalEvent.touches[0];
+    // If sliding not started yet store current touch position to calculate distance in future.
+    if (sliding == 0) {
+      sliding = 1; // Status 1 = slide started.
+      startClientX = event.clientX;
+    }
+  }
+  
+  /** Occurs when image is being slid.
+  */
+  function slide(event) {
+    event.preventDefault();
+    if (event.originalEvent.touches)
+      event = event.originalEvent.touches[0];
+    // Distance of slide.
+    var deltaSlide = event.clientX - startClientX;
+    // If sliding started first time and there was a distance.
+    if (sliding == 1 && deltaSlide != 0) {
+      sliding = 2; // Set status to 'actually moving'
+      startPixelOffset = pixelOffset; // Store current offset
+    }
+    
+    //  When user move image
+    if (sliding == 2) {
+      // Means that user slide 1 pixel for every 1 pixel of mouse movement.
+      var touchPixelRatio = 1;
+      // Check for user doesn't slide out of boundaries
+      if ((currentSlide == 0 && event.clientX > startClientX) ||
+         (currentSlide == slideCount - 1 && event.clientX < startClientX))
+        // Set ratio to 3 means image will be moving by 3 pixels each time user moves it's pointer by 1 pixel. (Rubber-band effect)
+        touchPixelRatio = 3;
+      // Calculate move distance.
+      pixelOffset = startPixelOffset + deltaSlide / touchPixelRatio;
+      // Apply moving and remove animation class
+      $('#slides').css('transform', 'translateX(' + pixelOffset + 'px').removeClass();
+    }
+  }
+  
+  /** When user release pointer finish slide moving.
+  */
+  function slideEnd(event) {
+    if (sliding == 2){
+      // Reset sliding.
+      sliding = 0;
+      // Calculate which slide need to be in view.
+      currentSlide = pixelOffset < startPixelOffset ? currentSlide + 1 : currentSlide -1;
+      // Make sure that unexisting slides weren't selected.
+      currentSlide = Math.min(Math.max(currentSlide, 0), slideCount - 1);
+      // Since in this example slide is full viewport width offset can be calculated according to it.
+      pixelOffset = currentSlide * -$('body').width();
+      // Remove style from DOM (look below)
+      $('#temp').remove();
+      // Add a translate rule dynamically and asign id to it
+      $('<style id="temp">#slides.animate{transform:translateX(' + pixelOffset + 'px)}</style>').appendTo('head');
+      // Add animate class to slider and reset transform prop of this class.
+      $('#slides').addClass('animate').css('transform', '');
+    }
+  }
+  
+});
+</script> -->
+
+</html>

@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- http://lazcreative.com/blog/adding-swipe-support-to-bootstrap-carousel-3-0/ -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.touchswipe/1.6.19/jquery.touchSwipe.min.js"></script>
+
+    <style>
+        .backgroundWrapper {
+            /* width: 80vw;
+            height: 90vh;
+            margin: 0 auto; */
+        }
+
+        .mainClass {
+            position: absolute;
+            top: 0;
+            left: 48%;
+            width: 100%;
+            height: 100%;
+        }
+
+        #man {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+        }
+
+        .firstChild {
+            margin-top: 7%;
+            margin-left: 5px;
+        }
+
+        .ml12 {
+            font-weight: 800;
+            font-size: 2.8em;
+            text-transform: uppercase;
+            /* letter-spacing: 0.03em; */
+            line-height: 0.4;
+            font-family: serif;
+            color: purple;
+        }
+
+        .ml12 .letter {
+            display: inline-block;
+        }
+
+        .slide-in-left {
+            -webkit-animation: slide-in-left 2.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+            animation: slide-in-left 2.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+        }
+
+        .ciplaLogo h2 {
+            color: #072cb9;
+            font-weight: 700;
+            position: absolute;
+            top: 0;
+            right: 22px;
+
+        }
+
+
+        @-webkit-keyframes slide-in-left {
+            0% {
+                -webkit-transform: translateX(-1000px);
+                transform: translateX(-1000px);
+                opacity: 0;
+            }
+
+            100% {
+                -webkit-transform: translateX(0);
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slide-in-left {
+            0% {
+                -webkit-transform: translateX(-1000px);
+                transform: translateX(-1000px);
+                opacity: 0;
+            }
+
+            100% {
+                -webkit-transform: translateX(0);
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+
+        .homeIcon {
+            flex: 0 0 97%;
+        }
+
+        .homeIcon span {
+            font-size: 30px;
+            width: 35px;
+        }
+
+        .backBtnSvg svg {
+            width: 35px;
+            height: 35px;
+            cursor: pointer;
+        }
+
+        .vertical .carousel-inner {
+            height: 90%;
+        }
+
+        .carousel-inner {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            max-height: 90vh;
+        }
+
+        img {
+            /* vertical-align: middle; */
+            height: 90vh;
+            max-width: 100%;
+            margin: 0 auto;
+            justify-content: center;
+            display: flex;
+        }
+
+        .carousel.vertical .item {
+            -webkit-transition: 0.6s ease-in-out top;
+            -moz-transition: 0.6s ease-in-out top;
+            -ms-transition: 0.6s ease-in-out top;
+            -o-transition: 0.6s ease-in-out top;
+            transition: 0.6s ease-in-out top;
+        }
+
+        .carousel.vertical .active {
+            top: 0;
+        }
+
+        .carousel.vertical .next {
+            top: 100%;
+        }
+
+        .carousel.vertical .prev {
+            top: -100%;
+        }
+
+        .carousel.vertical .next.left,
+        .carousel.vertical .prev.right {
+            top: 0;
+        }
+
+        .carousel.vertical .active.left {
+            top: -100%;
+        }
+
+        .carousel.vertical .active.right {
+            top: 100%;
+        }
+
+        .carousel.vertical .item {
+            left: 0;
+        }
+
+
+        @media (min-width: 768px) and (max-width: 1024px) {
+
+            /* 
+##Device = Tablets, Ipads (portrait)
+##Screen = B/w 768px to 1024px
+*/
+
+        }
+
+        @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+
+            /* ##Device = Tablets, Ipads (landscape)
+##Screen = B/w 768px to 1024px */
+
+        }
+
+        @media (min-width: 481px) and (max-width: 767px) {
+
+            /* 
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+            .firstChild {
+                margin-top: 22%;
+                margin-left: 5px;
+            }
+        }
+
+        @media (min-width: 200px) and (max-width: 480px) {
+
+            /* 
+##Device = Most of the Smartphones Mobiles (Portrait)
+##Screen = B/w 320px to 479px
+*/
+            .ml12 {
+                font-weight: 800;
+                font-size: 1.5em;
+                text-transform: uppercase;
+                /* letter-spacing: 0.03em; */
+                line-height: 0.4;
+                font-family: serif;
+                color: purple;
+            }
+
+            .firstChild {
+                margin-top: 27%;
+                margin-left: 5px;
+            }
+        }
+    </style>
+
+<body>
+    <div class="container">
+        <div id="carousel-example-generic" class="carousel slide vertical" data-ride="carousel" data-interval="false">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+            </ol>
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner" role="listbox">
+
+                <div class="item active">
+                    <div class="backgroundWrapper">
+                        <img src="girl.png">
+                        <div class="ciplaLogo">
+                            <h2>Cipla</h2>
+                        </div>
+                        <div class="mainClass">
+                            <div class="firstChild">
+                                <h1 class="ml12">MY</h1>
+                                <h1 class="ml12">BODY</h1>
+                                <h1 class="ml12">SHOUTS</h1>
+                                <h1 class="ml12">MY MOUTH</h1>
+                                <h1 class="ml12">STAYS</h1>
+                                <h1 class="ml12">NUMB</h1>
+                                <h1 class="ml12">WEEPY</h1>
+                                <h1 class="ml12">EYES</h1>
+                                <h1 class="ml12">THAT</h1>
+                                <h1 class="ml12">SEARCH</h1>
+                                <h1 class="ml12">BUT FIND</h1>
+                                <h1 class="ml12">NO ONE</h1>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="backgroundWrapper">
+                        <img src="boy.png">
+                        <div class="ciplaLogo">
+                            <h2>Cipla</h2>
+                        </div>
+                        <div class="mainClass">
+                            <div class="firstChild">
+                                <h1 class="ml12">THINK OF</h1>
+                                <h1 class="ml12">ME AND</h1>
+                                <h1 class="ml12">MY FEARS</h1>
+                                <h1 class="ml12">WHEN</h1>
+                                <h1 class="ml12">YOU SEE</h1>
+                                <h1 class="ml12">THIS</h1>
+                                <h1 class="ml12">BECAUSE</h1>
+                                <h1 class="ml12">I NEED YOU</h1>
+                                <h1 class="ml12">TO HELP</h1>
+                                <h1 class="ml12">ME BEAT THIS</h1>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="backgroundWrapper">
+                        <img src="man.png">
+                        <div class="ciplaLogo">
+                            <h2>Cipla</h2>
+                        </div>
+                        <div class="mainClass" id="man">
+                            <div class="firstChild">
+                                <h1 class="ml12">ONE MORE</h1>
+                                <h1 class="ml12">EPISODE</h1>
+                                <h1 class="ml12">AND IT'S</h1>
+                                <h1 class="ml12">NOT THE</h1>
+                                <h1 class="ml12">LAST ONE</h1>
+                                <h1 class="ml12">I FEEL</h1>
+                                <h1 class="ml12">I HAVE</h1>
+                                <h1 class="ml12">LOST AND</h1>
+                                <h1 class="ml12">IT HAS WON</h1>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="backgroundWrapper">
+                        <img src="man1.png">
+                        <div class="ciplaLogo">
+                            <h2>Cipla</h2>
+                        </div>
+                        <div class="mainClass" id="man">
+                            <div class="firstChild">
+                                <h1 class="ml12">IT'S</h1>
+                                <h1 class="ml12">ANOTHER DAY</h1>
+                                <h1 class="ml12">SO HELP</h1>
+                                <h1 class="ml12">ME FIND</h1>
+                                <h1 class="ml12">A BETTER</h1>
+                                <h1 class="ml12">TOMORROW</h1>
+                                <h1 class="ml12">THINK OF ME</h1>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Controls -->
+            <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+
+        <div style="display:flex">
+
+            <div class="homeIcon">
+                <a href="Home_Page.html"><span class="glyphicon glyphicon-home"></span></a>
+            </div>
+            <div class="backBtnSvg">
+                <svg id="Capa_1" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                    x="0px" y="0px" viewBox="0 0 487.622 487.622" style="enable-background:new 0 0 487.622 487.622"
+                    xml:space="preserve">
+                    <g>
+                        <g>
+                            <circle style="fill:#C4E15E" cx="243.811" cy="243.811" r="243.811"></circle>
+                            <path style="fill:#C4E15E" d="M487.479,251.765l-87.965-69.016l-80.212,0.008l-86.559-52.091l2.058,226.284l133.459,96.54      C437.592,412.251,484.726,337.617,487.479,251.765z">
+                            </path>
+                            <path style="opacity:0.37;fill:#B5D24F;enable-background:new    " d="M487.479,251.765l-87.965-69.016l-80.212,0.008      l-86.559-52.091l2.058,226.284l133.459,96.54C437.592,412.251,484.726,337.617,487.479,251.765z">
+                            </path>
+                            <polygon style="fill:#FFFFFF" points="88.109,243.809 234.801,130.666 234.801,182.749 399.514,182.749 399.514,304.873       234.801,304.873 234.801,356.951">
+                            </polygon>
+                        </g>
+                    </g>
+                </svg>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $.fn.myFunction();
+        //Enable swiping...
+        $(".carousel-inner").swipe({
+            //Generic swipe handler for all directions
+            swipeUp: function (event, direction, distance, duration, fingerCount) {
+                $(this).parent().carousel('prev');
+                $.fn.myFunction();
+
+            },
+            swipeDown: function () {
+                $(this).parent().carousel('next');
+                $.fn.myFunction();
+            },
+            //Default is 75px, set to 0 for demo so any distance triggers swipe
+            threshold: 0
+        });
+
+        $('#carousel-example-generic').on('slid.bs.carousel', function () {
+            $.fn.myFunction();
+            // $holder = $("ol li.active");
+            // $holder.removeClass('active');
+            // var idx = $('div.active').index('div.item');
+            // $('ol.carousel-indicators li[data-slide-to="' + idx + '"]').addClass('active');
+        });
+    });
+    $.fn.myFunction = function () {
+        $('.ml12').each(function () {
+            $(this).html($(this).text().replace(/([^\x00-\x80]|\w)/g, "<span class='letter'>$&</span>"));
+        });
+
+        anime.timeline({ loop: false })
+            .add({
+                targets: '.ml12 .letter',
+                translateX: [40, 0],
+                translateZ: 0,
+                opacity: [0, 1],
+                easing: "easeOutExpo",
+                duration: 1200,
+                delay: function (el, i) {
+                    return 500 + 30 * i;
+                }
+            }).add({
+                targets: '.ml12 .letter',
+                // translateX: [0,-30],
+                opacity: [1],
+                easing: "easeInExpo",
+                duration: 1100,
+                delay: function (el, i) {
+                    return 100 + 30 * i;
+                }
+            });
+    }     
+</script>
+
+</html>

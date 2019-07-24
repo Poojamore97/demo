@@ -1,243 +1,181 @@
-<!-- <style>
-#chartdiv {
-  width: 100%;
-  height: 500px;
-}
-
-</style>
-
-
-<script src="https://www.amcharts.com/lib/4/core.js"></script>
-<script src="https://www.amcharts.com/lib/4/charts.js"></script>
-<script src="https://www.amcharts.com/lib/4/themes/spiritedaway.js"></script>
-<script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
-
-
-<script>
-am4core.ready(function() {
-
-
-am4core.useTheme(am4themes_spiritedaway);
-am4core.useTheme(am4themes_animated);
-
-
-
-var chart = am4core.create("chartdiv", am4charts.XYChart3D);
-
-
-chart.data = [{
-  "country": "USA",
-  "visits": 4025
-}, {
-  "country": "China",
-  "visits": 1882
-}, {
-  "country": "Japan",
-  "visits": 1809
-}, {
-  "country": "Germany",
-  "visits": 1322
-}, {
-  "country": "UK",
-  "visits": 1122
-}, {
-  "country": "France",
-  "visits": 1114
-}, {
-  "country": "India",
-  "visits": 984
-}, {
-  "country": "Spain",
-  "visits": 711
-}, {
-  "country": "Netherlands",
-  "visits": 665
-}, {
-  "country": "Russia",
-  "visits": 580
-}, {
-  "country": "South Korea",
-  "visits": 443
-}, {
-  "country": "Canada",
-  "visits": 441
-}, {
-  "country": "Brazil",
-  "visits": 395
-}, {
-  "country": "Italy",
-  "visits": 386
-}, {
-  "country": "Australia",
-  "visits": 384
-}, {
-  "country": "Taiwan",
-  "visits": 338
-}, {
-  "country": "Poland",
-  "visits": 328
-}];
-
-
-let categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
-categoryAxis.dataFields.category = "country";
-categoryAxis.renderer.labels.template.rotation = 270;
-categoryAxis.renderer.labels.template.hideOversized = false;
-categoryAxis.renderer.minGridDistance = 20;
-categoryAxis.renderer.labels.template.horizontalCenter = "right";
-categoryAxis.renderer.labels.template.verticalCenter = "middle";
-categoryAxis.tooltip.label.rotation = 270;
-categoryAxis.tooltip.label.horizontalCenter = "right";
-categoryAxis.tooltip.label.verticalCenter = "middle";
-
-let valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
-valueAxis.title.text = "Countries";
-valueAxis.title.fontWeight = "bold";
-
-
-var series = chart.series.push(new am4charts.ColumnSeries3D());
-series.dataFields.valueY = "visits";
-series.dataFields.categoryX = "country";
-series.name = "Visits";
-series.tooltipText = "{categoryX}: [bold]{valueY}[/]";
-series.columns.template.fillOpacity = .8;
-
-var columnTemplate = series.columns.template;
-columnTemplate.strokeWidth = 2;
-columnTemplate.strokeOpacity = 1;
-columnTemplate.stroke = am4core.color("#FFFFFF");
-
-columnTemplate.adapter.add("fill", function(fill, target) {
-  return chart.colors.getIndex(target.dataItem.index);
-})
-
-columnTemplate.adapter.add("stroke", function(stroke, target) {
-  return chart.colors.getIndex(target.dataItem.index);
-})
-
-chart.cursor = new am4charts.XYCursor();
-chart.cursor.lineX.strokeOpacity = 0;
-chart.cursor.lineY.strokeOpacity = 0;
-
-}); 
-</script>
-
-
-<div id="chartdiv"></div> -->
-
-
-
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-    <link href="https://cdn.syncfusion.com/16.4.0.42/js/web/flat-azure/ej.web.all.min.css" rel="stylesheet" />
-    <!-- <link href="../content/default.css" rel="stylesheet" />
-    <link href="../content/default-responsive.css" rel="stylesheet" /> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <link href="https://cdn.syncfusion.com/16.4.0.42/js/web/flat-azure/ej.web.all.min.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" type="text/javascript"> </script>
+  <script src="https://cdn.syncfusion.com/16.4.0.42/js/web/ej.web.all.min.js" type="text/javascript"></script>"
+  <style>
+    #container {
+      touch-action: none !important;
+      user-select: none !important;
+      overflow: hidden;
+    }
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" type="text/javascript"> </script>
+    .outerContentWrapper {
+      background: #f3edf3;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      /* text-align: center */
+    }
+
+    .leftTitleWrapper {
+      margin-left: 15px;
+      font-family: sans-serif;
+      font-weight: 900;
+      font-family: sans-serif;
+      color: #75229e;
+    }
+
+    .endTextWrapper {
+      font-size: 12px;
+      color: #75229e
+    }
+
+    .dataWrapper {
+      display: flex
+    }
+
+    .circleWrapper {
+      width: 50%
+    }
+
+    .content-container-fluid {
+      border: 2px solid #d873c5;
+      border-radius: 10px;
+    }
 
 
-    <script src="https://cdn.syncfusion.com/16.4.0.42/js/web/ej.web.all.min.js" type="text/javascript"></script>
-    <!-- <script src="../scripts/properties.js" type="text/javascript"></script> -->
+
+    .circ {
+      border-radius: 50%;
+      width: 300px;
+      height: 300px;
+      display: inline-block;
+      background-color: gray;
+      border-top: 3px solid transparent;
+      border-left: 3px solid red;
+      border-right: 3px solid red;
+      border-bottom: 3px solid red;
+      transform: rotate(0deg);
+    }
+  </style>
 </head>
 
 <body>
-    <div class="content-container-fluid">
-        <div class="row">
-            <div class="cols-sample-area">
-                <div id="container"></div>
-            </div>
-            <div id="sampleProperties">
-                <div class="prop-grid">
-                    <div class="row">
-                        <div class="col-md-3">
-                            Column Facet
-                        </div>
-                        <div class="col-md-3">
-                            <div id="dropdown">
-                                <select id="optColumnFacet">
-                                    <option value="rectangle">Rectangle</option>
-                                    <option value="cylinder">Cylinder</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+  <div class="outerContentWrapper">
+    <div class='leftTitleWrapper'>
+      <span>In patients with epilipsy</span>
     </div>
-    <script type="text/javascript" language="javascript">
-        var chartObj;
-        function columnFacetChanged(e) {
-            $('#container').ejChart('option', { commonSeriesOptions: { columnFacet: e.value } });
-        }
-        $(function () {
-            $("#optColumnFacet").ejDropDownList({ "change": "columnFacetChanged", width: "110px", selectedItemIndex: 0 });
+    <div class="logoWrapper" style="text-align: center">
+      <img src="logo.png">
+      <div class="endTextWrapper">
+        <span>Levetiracetam 250/500/750/1000mg Tablet</span>
+      </div>
+    </div>
+    <div class="dataWrapper">
+      <div class="circleWrapper">
+        <div class="circ"></div>
+      </div>
+      <div class="content-container-fluid">
+        <div id="container"></div>
+      </div>
+    </div>
 
-            $("#container").ejChart(
-                {
-                    //Initializing Primary X Axis	
-                    primaryXAxis:
-                    {
-                        valueType: 'category',
-                        labelFormat: "MMM",
-                        labelIntersectAction: 'multipleRows',
-                        majorGridLines: { visible: true, color: "#a9a9a9", opacity: 0.12 }
-                    },
 
-                    //Initializing Primary Y Axis	
-                    primaryYAxis:
-                    {
-                        majorGridLines: { visible: true, color: "#a9a9a9", opacity: 0.12 }
-                    },
+  </div>
 
-                    //Initializing Common Properties for all the series
-                    commonSeriesOptions:
-                    {
-                        tooltip: { visible: true, format: "#series.name#<br/>#point.x# : #point.y#mg" },
-                        type: "column"
-                    },
 
-                    //Initializing Series
-                    series:
-                        [
-                            {
-                                points: [{ x: "Calcium sulfate(Gypsum hydrated)", y: 11 }, { x: "Phosphorus Pentachloride", y: 20 }, { x: "Sodium permanganate monohydrate", y: 8 },
-                                { x: "Magnesium permanganate", y: 9 }, { x: "Pottasium permanganate", y: 8.5 }, { x: "Sodium bicarbonate", y: 6.3 }],
 
-                                name: 'Chemicals in Soap X'
-                            },
+  <script type="text/javascript" language="javascript">
+    var chartObj;
+    // function columnFacetChanged(e) {
+    //   $('#container').ejChart('option', { commonSeriesOptions: { columnFacet: e.value } });
+    // }
+    $(function () {
+      // $("#optColumnFacet").ejDropDownList({ "change": "columnFacetChanged", width: "110px", selectedItemIndex: 0 });
 
-                            {
-                                points: [{ x: "Calcium sulfate(Gypsum hydrated)", y: 6 }, { x: "Phosphorus Pentachloride", y: 26 }, { x: "Sodium permanganate monohydrate", y: 7 },
-                                { x: "Magnesium permanganate", y: 32 }, { x: "Pottasium permanganate", y: 9.6 }, { x: "Sodium bicarbonate", y: 8.1 }],
+      $("#container").ejChart(
+        {
+          //Initializing Primary X Axis	
+          primaryXAxis:
+          {
+            // valueType: 'category',
+            // labelFormat: "MMM",
+            // labelIntersectAction: 'multipleRows',
+            // majorGridLines: { visible: true, color: "#a9a9a9", opacity: 0.12 }
+          },
 
-                                name: 'Chemicals in Soap Y'
-                            }
-                        ],
+          //Initializing Primary Y Axis	
+          primaryYAxis:
+          {
+            // majorGridLines: { visible: true, color: "#a9a9a9", opacity: 0.12 },
+            range: { min: 56, max: 66, interval: 2 },
+            title: {
+              text: "Mean value of QOLIE-31 scores"
+            }
 
-                    //Enabling 3D Chart
-                    enable3D: true,
-                    enableRotation: true,
-                    depth: 100,
-                    wallSize: 2,
-                    tilt: 10,
-                    rotation: 14,
-                    perspectiveAngle: 20,
-                    sideBySideSeriesPlacement: true,
-                    load: "loadTheme",
-                    title: { text: 'Chemicals in Soaps' },
-                    isResponsive: true,
-                    size: { height: '600' },
-                    legend: { visible: true }
-                });
-            $("#sampleProperties").ejPropertiesPanel();
 
-        });       
-    </script>
+          },
+
+          //Initializing Common Properties for all the series
+          commonSeriesOptions:
+          {
+            tooltip: { visible: true, format: "#series.name#<br/>#point.x# : #point.y#mg" },
+            type: "column",
+
+          },
+
+
+          //Initializing Series
+          series:
+            [
+              {
+                points: [{ x: "Baseline", y: 61.5, fill: "#919a98", }, { x: "18 week followup", y: 62, fill: "#919a98" }],
+
+                name: 'Placebp-N18',
+                fill: '#919a98'
+              },
+
+              {
+                points: [{ x: "Baseline", y: 59.4, fill: '#eeb0ee' }, { x: "18 week followup", y: 63.4, fill: '#eeb0ee' }],
+
+                name: 'Placebp-N18',
+                fill: '#eeb0ee'
+              },
+
+              {
+                points: [{ x: "Baseline", y: 61.7, fill: '#800080' }, { x: "18 week followup", y: 64.3, fill: '#800080' }],
+
+                name: 'Placebp-N18',
+                fill: '#800080'
+              }
+            ],
+
+          //Enabling 3D Chart
+          enable3D: true,
+          enableRotation: true,
+          depth: 100,
+          wallSize: 1,
+          tilt: 10,
+          rotation: 14,
+          perspectiveAngle: 20,
+          sideBySideSeriesPlacement: true,
+          // load: "loadTheme",
+          title: {},
+          isResponsive: true,
+          size: { width: '600', height: '450' },
+          // legend: { visible: true },
+        });
+      $("#sampleProperties").ejPropertiesPanel();
+
+    });       
+  </script>
 </body>
 
 </html>

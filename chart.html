@@ -42,7 +42,8 @@
     }
 
     .circleWrapper {
-      width: 50%
+      width: 50%;
+      position: relative;
     }
 
     .content-container-fluid {
@@ -50,19 +51,48 @@
       border-radius: 10px;
     }
 
+.circUpper{
+  
+}
 
-
-    .circ {
-      border-radius: 50%;
+    .circLower {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      color: black;
       width: 300px;
       height: 300px;
+      border-radius: 50%;
+      /* border-bottom: 10px solid currentColor; */
+      text-align: center;
+      border-top: 10px solid transparent;
+      border-left: 2px solid #6a2f86;
+      border-right: 2px solid #6a2f86;
+      border-bottom: 2px solid #6a2f86;
+      z-index:1;
+    /* transform: rotate(0deg); */
+    }
+    .circLower:before,.circLower:after {
+      content: "";
+      position: fixed;
+      top: 23%;
+      height: 13px;
+      width: 13px;
+      background-color: #6a2f86;
+      border-radius: 50%;
       display: inline-block;
-      background-color: gray;
-      border-top: 3px solid transparent;
-      border-left: 3px solid red;
-      border-right: 3px solid red;
-      border-bottom: 3px solid red;
-      transform: rotate(0deg);
+      z-index:2;
+    }
+
+    .circLower:before {
+      left:0;
+      transform:translate(10px,0) rotate(-30deg);
+    }
+
+    .circLower:after {
+      right:0;
+      transform:translate(-10px,0) rotate(30deg);
     }
   </style>
 </head>
@@ -80,7 +110,8 @@
     </div>
     <div class="dataWrapper">
       <div class="circleWrapper">
-        <div class="circ"></div>
+        <div class="circUpper"></div>
+        <div class="circLower"></div>
       </div>
       <div class="content-container-fluid">
         <div id="container"></div>
@@ -159,7 +190,7 @@
 
           //Enabling 3D Chart
           enable3D: true,
-          enableRotation: true,
+          enableRotation: false,
           depth: 100,
           wallSize: 1,
           tilt: 10,
